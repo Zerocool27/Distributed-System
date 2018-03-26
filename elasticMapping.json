@@ -1,0 +1,81 @@
+curl -XPUT '172.31.29.219:9200/ds_project?pretty' - H 'Content-Type: application/json' - d ' {
+    "mappings": {
+        "review_data": {
+            "properties": {
+                "reviewerID": {
+                    "type": "string"
+                },
+                "asin": {
+                    "type": "string"
+                },
+                "reviewerName": {
+                    "type": "string"
+                },
+                "helpful": {
+                    "type": "float"
+                },
+                "reviewText": {
+                    "type": "string"
+                },
+                "overall": {
+                    "type": "float"
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "unixReviewTime": {
+                    "type": "long"
+                },
+                "reviewTime": {
+                    "type": "string"
+                },
+                "unixReviewTimeFormatted": {
+                    "type": "date",
+                    "format": "epoch_millis||yyyy-MM-dd HH:mm:ss"
+                }
+            }
+        }
+    }
+}
+'
+
+curl -XPUT '172.31.20.254:9200/ds_project?pretty' - H 'Content-Type: application/json' - d ' {
+    "mappings": {
+        "review_data": {
+            "properties": {
+                "reviewerID": {
+                    "type": "string"
+                },
+                "asin": {
+                    "type": "string"
+                },
+                "reviewerName": {
+                    "type": "string"
+                },
+                "helpful": {
+                    "type": "float"
+                },
+                "reviewText": {
+                    "type": "string"
+                },
+                "overall": {
+                    "type": "float"
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "unixReviewTime": {
+                    "type": "long"
+                },
+                "reviewTime": {
+                    "type": "string"
+                },
+                "unixReviewTimeFormatted": {
+                    "type": "date",
+                    "format": "epoch_millis||yyyy-MM-dd HH:mm:ss"
+                }
+            }
+        }
+    }
+}
+'

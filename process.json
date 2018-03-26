@@ -1,0 +1,14 @@
+{
+    "apps": [{
+        "name": "CleverianApp",
+        "script": "/var/www/cleverianapp/current/server/app.js",
+        "ignore_watch": ["[\\/\\\\]\\./", "node_modules", "log"],
+        "exec_interpreter": "/home/ubuntu/.nvm/versions/node/v6.11.1/bin/node",
+        "cron_restart": "30 4 * * *",
+        "env": {
+            "NODE_ENV": "production",
+            "PORT": "8082"
+        }
+
+    }]
+}
