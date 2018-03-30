@@ -37,6 +37,10 @@ angular.module('dsProjectApp', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
+  .config(['$mdThemingProvider', function($mdThemingProvider) {
+    $mdThemingProvider.generateThemesOnDemand(true);
+  }])
+
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
