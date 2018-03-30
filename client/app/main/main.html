@@ -1,6 +1,6 @@
-<div ng-include="'components/shell/shell.html'"></div>
+<!--<div ng-include="'components/shell/shell.html'"></div>-->
 
-<md-grid-list class="things-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5"
+<!-- <md-grid-list class="things-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5"
         md-row-height-gt-md="1:1" md-row-height="4:3"
         md-gutter="8px" md-gutter-gt-sm="4px">
   <md-grid-tile ng-repeat="thing in awesomeThings" ng-class="getColor($index)" md-rowspan="{{getSpan($index)}}"
@@ -11,3 +11,88 @@
     <md-grid-tile-footer><h3>{{thing.name}}</h3></md-grid-tile-footer>
   </md-grid-tile>
 </md-grid-list>
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Distributed Systems - Search Engine</title>
+
+<link rel="stylesheet" type="text/css" href="main.css" />
+
+</head>
+
+<body>
+
+<div id="page" ng-controller="MainCtrl">
+
+    <h1>DISTRIBUTED SYSTEMS SEARCH ENGINE</h1>
+    
+    <form id="searchForm" method="post">
+		<fieldset>
+        
+           	<input id="s" type="text" ng-model="searchBox"/>
+            
+            <input type="submit" value="Submit" id="submitButton" ng-click="dsSearch()"/>
+            
+            <!-- <div id="searchInContainer">
+                <input type="radio" name="check" value="site" id="searchSite" checked />
+                <label for="searchSite" id="siteNameLabel">Search</label>
+                
+                <input type="radio" name="check" value="web" id="searchWeb" />
+                <label for="searchWeb">Search The Web</label>
+			</div>
+                        
+            <ul class="icons">
+                <li class="web" title="Web Search" data-searchType="web">Web</li>
+                <li class="images" title="Image Search" data-searchType="images">Images</li>
+                <li class="news" title="News Search" data-searchType="news">News</li>
+                <li class="videos" title="Video Search" data-searchType="video">Videos</li>
+            </ul> -->
+            
+        </fieldset>
+    </form>
+
+    <div id="resultsDiv"></div>
+    
+    <!-- <div id="resultsDiv" class="webResult">
+    	<table>
+		  <tr ng-repeat="s in result">
+		    <td>{{ s.name }}</td>
+		    <td>{{ s.age }}</td>
+		    <td>{{ s.city }}</td>
+		  </tr>
+		</table>
+    </div> -->
+
+    <div id="resultsDiv" class="webResult" ng-repeat="s in result" ng-hide="result == ''">
+		<h2>{{ s._source.reviewerName }} - {{ s._source.reviewTime }}</h2>
+		<!-- <div style="text-align:center"> -->
+			<!-- <button ng-click="open = !open"><i class="down"></i></button> -->
+		<!-- </div> -->
+		<!-- <div ng-class="{ showMe: open }" class="collapsable">
+			<p ng-click="open = !open">{{ s._source.reviewText }}</p>
+		</div> -->
+		<div id="module" class="container">
+			<div class="container">
+				<p class="collapse" id="collapseExample{{$index}}" aria-expanded="false">{{ s._source.reviewText }}</p>
+			</div>
+			<div style="text-align:center">
+				<a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}"></a>
+			</div>
+		</div>
+	</div>
+	<div ng-show="result == '' ">
+		<p> No result has been found!</p>
+	</div>
+</div>
+
+<!-- It would be great if you leave the link back to the tutorial. Thanks! -->
+<!-- <p class="credit"><a href="http://tutorialzine.com/2010/09/google-powered-site-search-ajax-jquery/">Powered by Tzine &amp; Google</a></p> -->
+    
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="main.js"></script>
+</body>
+</html>
