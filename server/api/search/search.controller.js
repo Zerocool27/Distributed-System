@@ -6,9 +6,9 @@ var elasticsearch = require('elasticsearch');
 var ELASTIC_INDEX = "ds_project"
 var ELASTIC_TYPE = "review_data"
 
-process.env.ELASTIC_HOST_1 = "ec2-35-165-87-60.us-west-2.compute.amazonaws.com"
-process.env.ELASTIC_HOST_2 ="ec2-35-160-26-235.us-west-2.compute.amazonaws.com"
-process.env.ELASTIC_PORT = 9200
+//process.env.ELASTIC_HOST_1 = "ec2-35-165-87-60.us-west-2.compute.amazonaws.com"
+//process.env.ELASTIC_HOST_2 ="ec2-35-160-26-235.us-west-2.compute.amazonaws.com"
+//process.env.ELASTIC_PORT = 9200
 
 
 exports.search = function(req, res) {
@@ -26,9 +26,9 @@ exports.search = function(req, res) {
         maxRetries: 10,
         deadTimeout: 30000
     })
-    console.log("ELASTIC HOST 1",process.env.ELASTIC_HOST_1)
-    console.log("ELASTIC HOST 2",process.env.ELASTIC_HOST_2)
-    console.log("ELASTIC PORT",process.env.ELASTIC_PORT)
+    console.log("ELASTIC HOST 1", process.env.ELASTIC_HOST_1)
+    console.log("ELASTIC HOST 2", process.env.ELASTIC_HOST_2)
+    console.log("ELASTIC PORT", process.env.ELASTIC_PORT)
     var multiMatchQuery = {
         "query": {
             "multi_match": {

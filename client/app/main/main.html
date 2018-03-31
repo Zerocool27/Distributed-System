@@ -75,8 +75,11 @@
 			<p ng-click="open = !open">{{ s._source.reviewText }}</p>
 		</div> -->
 		<div id="module" class="container">
-			<div class="container">
-				<p class="collapse" id="collapseExample{{$index}}" aria-expanded="false">{{ s._source.reviewText }}</p>
+			<div class="container" style="padding-bottom:10px" >
+            <h4 style="padding-top:  10px;">Summary: {{ s._source.summary }}<h4> 
+            <h4>Overall Score: {{ s._source.overall }}<h4> 
+				<h4>Review Text<h4>
+                    <p class="collapse" id="collapseExample{{$index}}" aria-expanded="false">{{s._source.reviewText }}</p>
 			</div>
 			<div style="text-align:center">
 				<a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}"></a>
